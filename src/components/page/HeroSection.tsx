@@ -7,7 +7,7 @@ const HeroSection = () => {
     <section className="relative text-center py-24 sm:py-40 min-h-screen flex flex-col justify-center items-center">
       <div className="absolute inset-0 z-0">
         <Image 
-          src="https://placehold.co/1600x900.png" 
+          src="https://storage.googleapis.com/techfusion-alchemy-bucket/karin/Screenshot_7-7-2025_4633_www.instagram.com.jpeg" 
           layout="fill" 
           objectFit="cover" 
           alt="Evocative portrait of Karin Kedem" 
