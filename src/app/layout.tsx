@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Kedem Echoes',
-  description: 'A profile microsite for the music artist Karin Kedem.',
+  title: 'Echoes of Karin',
+  description: 'Karin Kedem, Art, Life, and Music',
 };
 
 export default function RootLayout({
