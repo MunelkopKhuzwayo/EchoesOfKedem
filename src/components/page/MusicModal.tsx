@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import {useState, useEffect} from 'react';
 
 interface MusicLink {
   platform: string;
@@ -12,7 +15,7 @@ interface MusicData {
   title: string;
   artist: string;
   thumbnail: string;
-  type: string; //either it's youtube or external
+  type: string; //either it's youtube or external or hybrid
   embedId?: string;
   links?: MusicLink[];
   aiHint: string;
@@ -26,6 +29,12 @@ interface MusicModalProps {
 
 const MusicModal: React.FC<MusicModalProps> = ({ isOpen, onClose, song }) => {
   if (!song) return null;
+
+  const [showVideo, setShowVideo] = useState(false);
+
+  const toggleVideo = () => {
+    setShowVideo(!showVideo);
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -59,13 +68,46 @@ const MusicModal: React.FC<MusicModalProps> = ({ isOpen, onClose, song }) => {
                 ))}
               </div>
             </div>
-          ) : (
-            <div className="p-6 text-center">
-              <p>No playable content available for this song, but you can still check out the artist!</p>
-              <Button onClick={onClose} className="mt-4">Close</Button>
+          ) : song.type === 'hybrid' && song?.links?.length > 0 && song.embedId && !showVideo ? (
+            <div className="p-6 flex flex-col justify-center items-center h-full">
+              <h3 className="text-2xl font-headline font-semibold text-primary mb-4">
+                Where Else to Listen to: {song.title}
+              </h3>
+              <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+                {song?.links.map((link, index) => (
+                  <Button asChild key={index} variant="outline" className="w-full">
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                      Listen on {link.platform}
+                    </a>
+                  </Button>
+                ))}
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => setShowVideo(true)}
+                >
+                  Watch the Video
+                </Button>
+              </div>
             </div>
-          )
-        }
+          ) : song.embedId && showVideo ? (
+            <div className="relative w-full h-full">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                src={`https://www.youtube.com/embed/${song.embedId}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ) : (
+            <div className="p-6 flex flex-col justify-center items-center h-full">
+              <h3 className="text-2xl font-headline font-semibold text-primary mb-4">
+                Song Not Found
+              </h3>
+            </div>
+          )}
       </DialogContent>
     </Dialog>
   );

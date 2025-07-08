@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Instagram, Youtube, Twitter } from 'lucide-react';
+import { Instagram, Youtube, Twitter, Facebook } from 'lucide-react';
 import TikTokIcon from './TikTokIcon';
 
 const HeroSection = () => {
@@ -11,7 +11,7 @@ const HeroSection = () => {
           layout="fill" 
           objectFit="cover" 
           alt="Evocative portrait of Karin Kedem" 
-          className="opacity-20"
+          className="opacity-40"
           data-ai-hint="musician portrait"
           priority
         />
@@ -22,13 +22,14 @@ const HeroSection = () => {
           Karin Kedem
         </h1>
         <p className="mt-6 text-lg sm:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-          An echo in the static, a voice that weaves through melody and memory. Karin Kedem's features are whispers of soul, turning tracks into timeless stories.
+          Timeless. Colourful. Cultured.
         </p>
         <div className="flex justify-center items-center space-x-6 mt-8">
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110"><Instagram className="h-6 w-6" /></a>
+          <a href="https://www.instagram.com/karinkhalina/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110"><Instagram className="h-6 w-6" /></a>
           <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110"><TikTokIcon className="h-6 w-6" /></a>
           <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110"><Twitter className="h-6 w-6" /></a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110"><Youtube className="h-6 w-6" /></a>
+          <a href="https://www.youtube.com/@karinkhalinakedem749" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110"><Youtube className="h-6 w-6" /></a>
+          <a href="https://www.facebook.com/profile.php?id=100011322781548" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110"><Facebook className="h-6 w-6" /></a>
         </div>
       </div>
     </section>

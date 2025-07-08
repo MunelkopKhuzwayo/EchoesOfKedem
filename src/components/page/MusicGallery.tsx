@@ -4,7 +4,9 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import MusicModal from './MusicModal';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface MusicLink {
   platform: string;
@@ -16,7 +18,7 @@ interface MusicData {
   title: string;
   artist: string;
   thumbnail: string;
-  type: string; //either youtube or external
+  type: string; //either youtube or external or hybrid
   embedId?: string;
   links?: MusicLink[];
   aiHint: string;
@@ -28,7 +30,7 @@ const musicData: MusicData[] = [
     id: 1,
     title: 'Ngehlelwa Umoya',
     artist: 'Jaiva Zimnike',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/ngehlelwa-umoya.jpg',
     type: 'youtube',
     embedId: 'Tsk4jCHtYZk', // Example YouTube video ID
     aiHint: 'ngehlelwa umoya',
@@ -38,7 +40,7 @@ const musicData: MusicData[] = [
     id: 2,
     title: 'Isikhiye Sempilo',
     artist: 'Jaiva Zimnike',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/isikhiye-sempilo.jpg',
     type: 'youtube',
     embedId: '-oca8xbsZUU', // Example YouTube video ID
     aiHint: 'isikhiye sempilo',
@@ -48,17 +50,17 @@ const musicData: MusicData[] = [
     id: 3,
     title: 'Now or Never',
     artist: 'DJ Chronic Style, Jaiva Zimnike',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/now-or-never.jpg',
     type: 'youtube',
-    embedId: 'R5EaAZ5656c', // Example YouTube video ID
+    embedId: 'TUzltsVpRk0', // Example YouTube video ID
     aiHint: 'now or never',
-    year: 2016
+    year: 2017
   },
   {
     id: 4,
     title: 'Move On',
     artist: 'Imasterz',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/move-on.png',
     type: 'external',
     links: [
       {
@@ -67,23 +69,23 @@ const musicData: MusicData[] = [
       }
     ],
     aiHint: 'now or never',
-    year: 2016
+    year: 2018
   },
   {
     id: 5,
     title: 'As Long As I Live',
     artist: 'Dinkie',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
     type: 'youtube',
     embedId: 'YSIZVC-d7MA', // Example YouTube video ID
     aiHint: 'as long as I live song',
-    year: 2016
+    year: 2019
   },
   {
     id: 6,
     title: 'Wathi Uyosebenza',
     artist: 'Jaiva Zimnike',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/wathi-uyosebenza.jpeg',
     type: 'external',
     links: [
       {
@@ -92,97 +94,83 @@ const musicData: MusicData[] = [
       }
     ],
     aiHint: 'wathi uyosebenza',
-    year: 2016
+    year: 2020
   },
   {
     id: 7,
     title: 'Summer Rain',
     artist: 'DJ Lation, Cristian I.G. Alvarez, Thee Exclusives',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/summer-rain.jpeg',
     type: 'external',
     links: [
-      { platform: 'Songwhip', url: 'https://songwhip.com/djlation/summer-rain' },
-      { platform: 'FFM', url: 'https://ffm.to/7mp4z3x' }
+      { platform: 'Songwhip', url: 'https://songwhip.com/djlation/summer-rain' }
     ],
     aiHint: 'summer rain',
-    year: 2016
-  },
-  {
-    id: 7,
-    title: 'Summer Rain',
-    artist: 'DJ Lation, Cristian I.G. Alvarez, Thee Exclusives',
-    thumbnail: 'https://placehold.co/600x600.png',
-    type: 'external',
-    links: [
-      { platform: 'Songwhip', url: 'https://songwhip.com/djlation/summer-rain' },
-      { platform: 'FFM', url: 'https://ffm.to/7mp4z3x' }
-    ],
-    aiHint: 'summer rain',
-    year: 2016
+    year: 2023
   },
   {
     id: 8,
     title: 'Sesbuyile',
     artist: 'Jaiva Zimnike, AmaAk47',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
     type: 'external',
     links: [
       { platform: 'Spotify', url: 'https://open.spotify.com/track/3biyfoeDqMg9YSZOsWsFlg?si=QEHnjmFbQSGsGb8t1bhm5Q' },
     ],
     aiHint: 'sesbuyile',
-    year: 2016
+    year: 2022
   },
   {
     id: 9,
     title: 'Running',
     artist: 'DJ SoniqT, Sibah Musiq, LaMos Musiq',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/running.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/runnung-soniq-t-featuring-karin-kedemsibah-musiq-lamos-musiq' },
     ],
     embedId: "pe_qBzBedWE",
     aiHint: 'running',
-    year: 2016
+    year: 2023
   },
   {
     id: 10,
     title: 'Life',
     artist: 'DJ SoniqT, DJ Coolio',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/life.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/life-soniq-t-dj-coolio-featuring-karin-kedem' },
     ],
     embedId: "KADP-HJd6jk",
     aiHint: 'running',
-    year: 2016
+    year: 2023
   },
   {
     id: 11,
     title: 'On My Knees',
     artist: 'Frank Petros',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/on-my-knees.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Spotify', url: 'https://open.spotify.com/track/4Xq2gXG3w9tcgwVwQsHhkE?si=99ni4oLAQRCpy3H5J5CAxw' },
     ],
     embedId: "TfrrRNrUorM",
     aiHint: 'running',
-    year: 2016
+    year: 2023
   },
   {
     id: 12,
     title: 'Lollipops',
-    artist: 'inkie, Tall Baby Mellow, Cristian I.G. Alvarez',
-    thumbnail: 'https://placehold.co/600x600.png',
+    artist: 'Inkie, Tall Baby Mellow, Cristian I.G. Alvarez',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/lollipops.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/lollipops' },
     ],
     embedId: "-J2RX2P14Dw",
     aiHint: 'running',
-    year: 2016
+    year: 2023
   },
   {
     id: 13,
@@ -195,52 +183,52 @@ const musicData: MusicData[] = [
     ],
     embedId: "WkVjHMJTTds",
     aiHint: 'running',
-    year: 2016
+    year: 2024
   },
   {
     id: 14,
     title: 'Izimbali',
-    artist: 'Chrs Nino, Sibah Music',
-    thumbnail: 'https://placehold.co/600x600.png',
+    artist: 'Chrs Nino, Sibah Musiq',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/unite.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/izimbali' },
     ],
     embedId: "3APabGq7ZDk",
     aiHint: 'running',
-    year: 2016
+    year: 2024
   },
   {
     id: 15,
     title: 'Nothing Can Stop Us',
     artist: 'Blaq Kiid',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/nothing-can-stop-us.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/izimbali' },
     ],
     embedId: "b5vL57NihTU",
     aiHint: 'running',
-    year: 2016
+    year: 2024
   },
   {
     id: 16,
     title: 'More Life Less Rules',
     artist: 'Chrs Nino',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/more-life-less-rules.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/more-life-chrsnino' },
     ],
     embedId: "0Ro8FpFuusg",
     aiHint: 'running',
-    year: 2016
+    year: 2024
   },
   {
     id: 17,
     title: 'Magic Touch',
     artist: 'Chrs Nino',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/magic-touch.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/magic-touch-chrsnino' },
@@ -248,98 +236,102 @@ const musicData: MusicData[] = [
     ],
     embedId: "FoniSVP7Od8",
     aiHint: 'running',
-    year: 2016
+    year: 2024
   },
   {
     id: 18,
     title: 'Dance All Night',
-    artist: 'Sibah Music, Melsaw',
-    thumbnail: 'https://placehold.co/600x600.png',
+    artist: 'Sibah Musiq, Melsaw',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/dance-all-night.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/dance-all-night-sibah-musiq' },
     ],
     embedId: "G3nZDO0b2eU",
     aiHint: 'running',
-    year: 2016
+    year: 2024
   },
   {
     id: 19,
     title: 'Liphupho',
     artist: 'Lungza G',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/liphupho.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://soldistro.Ink.to/iKhweziLokusa!share' },
     ],
     embedId: "1fwn4fPUKJ4",
     aiHint: 'running',
-    year: 2016
+    year: 2024
   },
   {
     id: 20,
     title: 'Sthandwa Sami',
     artist: 'Maqhinga Hadebe',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/sthandwa-sami.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://song.link/sthandwasami' },
     ],
     embedId: "rYK5EtERtRA",
     aiHint: 'running',
-    year: 2016
+    year: 2025
   },
   {
     id: 21,
     title: "I'm Next",
     artist: 'Dinkie',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
     type: 'youtube',
     embedId: "YWUmF%LJT-4",
     aiHint: 'running',
-    year: 2016
+    year: 2025
   },
   {
     id: 22,
     title: "Prince",
     artist: 'Tsumba',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/prince.jpg',
     type: 'hybrid',
     links: [
       { platform: "Ditto", url: "https://ditto.fm/prince-tsumba" }
     ],
     embedId: "bMp4r4HdSfI",
     aiHint: 'running',
-    year: 2016
+    year: 2025
   },
   {
     id: 23,
     title: "Yasho",
     artist: 'Sibah Musiq',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/yasho.jpg',
     type: 'youtube',
     embedId: "JVFwGEOZBss",
     aiHint: 'running',
-    year: 2016
+    year: 2025
   },
   {
     id: 24,
     title: "Tanzen",
     artist: 'Fey M',
-    thumbnail: 'https://placehold.co/600x600.png',
-    type: 'youtube',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/tanzen.jpg',
+    type: 'external',
     links: [
       { platform: "DistroKid", url: "https://distrokid.com/hyperfollow/feym1/tanzen-feat-karin-kedem-radio-edit" }
     ],
-    embedId: "JVFwGEOZBss",
     aiHint: 'running',
-    year: 2016
+    year: 2025
   },
 ];
 
 const MusicGallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSong, setSelectedSong] = useState<MusicData | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterType, setFilterType] = useState('all');
+  const [filterArtist, setFilterArtist] = useState('all');
+  const [filterYear, setFilterYear] = useState('all');
+  const [visibleSongsCount, setVisibleSongsCount] = useState(6);
 
   const openModal = (song: MusicData) => {
     setSelectedSong(song);
@@ -351,11 +343,119 @@ const MusicGallery = () => {
     setIsModalOpen(false);
   };
 
+  const filteredMusic = useMemo(() => {
+    let filtered = musicData;
+
+    if (searchTerm) {
+      filtered = filtered.filter(song =>
+        song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        song.artist.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    if (filterType !== 'all') {
+      filtered = filtered.filter(song => song.type === filterType);
+    }
+
+    if (filterArtist !== 'all') {
+      filtered = filtered.filter(song => song.artist.includes(filterArtist));
+    }
+
+    if (filterYear !== 'all') {
+      filtered = filtered.filter(song => song.year === parseInt(filterYear));
+    }
+
+    return filtered;
+  }, [searchTerm, filterType, filterArtist, filterYear]);
+
+  const displayedMusic = filteredMusic.slice(0, visibleSongsCount);
+
+  const handleSeeMore = () => {
+    setVisibleSongsCount(prevCount => prevCount + 6);
+  };
+
+  // Get unique artists and years for filter options
+  const uniqueArtists = useMemo(() => {
+    const artists = new Set<string>();
+    musicData.forEach(song => {
+      song.artist.split(', ').forEach(artist => artists.add(artist.trim()));
+    });
+    return ['all', ...Array.from(artists).sort()];
+  }, []);
+
+  const uniqueYears = useMemo(() => {
+    const years = new Set<number>();
+    musicData.forEach(song => years.add(song.year));
+    return ['all', ...Array.from(years).sort((a, b) => b - a).map(String)];
+  }, []);
+
   return (
     <section id="music" className="py-16 sm:py-24">
       <h2 className="text-4xl sm:text-5xl font-headline font-bold text-center text-primary mb-16">Featured On</h2>
+      <div className="flex flex-col sm:flex-row gap-4 mb-8">
+        <Input
+          type="text"
+          placeholder="Search by title or artist..."
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            setVisibleSongsCount(6); // Reset visible count on search
+          }}
+          className="w-full sm:w-1/3"
+        />
+        <Select
+          value={filterType}
+          onValueChange={(value) => {
+            setFilterType(value);
+            setVisibleSongsCount(6); // Reset visible count on filter change
+          }}
+        >
+          <SelectTrigger className="w-full sm:w-1/4">
+            <SelectValue placeholder="Filter by Type" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Types</SelectItem>
+            <SelectItem value="youtube">YouTube</SelectItem>
+            <SelectItem value="external">External Link</SelectItem>
+            <SelectItem value="hybrid">Hybrid (YT + External)</SelectItem>
+          </SelectContent>
+        </Select>
+        <Select
+          value={filterArtist}
+          onValueChange={(value) => {
+            setFilterArtist(value);
+            setVisibleSongsCount(6); // Reset visible count on filter change
+          }}
+        >
+          <SelectTrigger className="w-full sm:w-1/4">
+            <SelectValue placeholder="Filter by Artist" />
+          </SelectTrigger>
+          <SelectContent>
+            {uniqueArtists.map(artist => (
+              <SelectItem key={artist} value={artist}>{artist === 'all' ? 'All Artists' : artist}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select
+          value={filterYear}
+          onValueChange={(value) => {
+            setFilterYear(value);
+            setVisibleSongsCount(6); // Reset visible count on filter change
+          }}
+        >
+          <SelectTrigger className="w-full sm:w-1/5">
+            <SelectValue placeholder="Filter by Year" />
+          </SelectTrigger>
+          <SelectContent>
+            {uniqueYears.map(year => (
+              <SelectItem key={year} value={year}>{year === 'all' ? 'All Years' : year}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12">
-        {musicData.map((song) => (
+        {displayedMusic.map((song) => (
           <Card 
             key={song.id} 
             className="overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border/30 bg-card/50 backdrop-blur-sm cursor-pointer"
@@ -387,6 +487,15 @@ const MusicGallery = () => {
           </Card>
         ))}
       </div>
+
+      {filteredMusic.length > visibleSongsCount && (
+        <div className="text-center mt-12">
+          <Button onClick={handleSeeMore} variant="secondary">
+            See More ({filteredMusic.length - visibleSongsCount} remaining)
+          </Button>
+        </div>
+      )}
+
       <MusicModal isOpen={isModalOpen} onClose={closeModal} song={selectedSong} />
     </section>
   );

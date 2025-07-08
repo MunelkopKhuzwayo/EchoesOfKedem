@@ -4,18 +4,18 @@ import Image from 'next/image'
 const verseData = [
   {
     id: 1,
-    lyric: "We paint our stories on the canvas of the night sky.",
-    songTitle: "Midnight Bloom"
+    lyric: "I'm running, running, chasing the rhythm.",
+    songTitle: "Running"
   },
   {
     id: 2,
-    lyric: "A memory traced in the silence between heartbeats.",
-    songTitle: "Velvet Echo"
+    lyric: "Warte nicht auf deine träume. Laufen so schnell du kannst.(Don't wait for your dreams, run towards them!)",
+    songTitle: "Now or Never"
   },
   {
     id: 3,
-    lyric: "Chasing the sun until our shadows merge as one.",
-    songTitle: "Dusk Hymn"
+    lyric: "Life is a Song. And there's Magic Everywhere.",
+    songTitle: "Life"
   }
 ];
 
