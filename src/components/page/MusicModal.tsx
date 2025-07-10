@@ -19,6 +19,8 @@ interface MusicData {
   embedId?: string;
   links?: MusicLink[];
   aiHint: string;
+  year: number;
+  genre: string;
 }
 
 interface MusicModalProps {
@@ -76,8 +78,8 @@ const MusicModal: React.FC<MusicModalProps> = ({ isOpen, onClose, song }) => {
               <div className="grid grid-cols-2 gap-4 w-full max-w-md">
                 {song?.links.map((link, index) => (
                   <Button asChild key={index} variant="outline" className="w-full">
-                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                      Listen on {link.platform}
+                    <a href={link.url || "#"} target="_blank" rel="noopener noreferrer">
+                      Listen on {link.platform || "Unknown"}
                     </a>
                   </Button>
                 ))}

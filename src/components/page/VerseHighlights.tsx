@@ -1,52 +1,153 @@
-import React from 'react';
-import Image from 'next/image'
+"use client";
+
+import {useRef, useState, useEffect, useCallback} from 'react';
+import Image from 'next/image';
+import { Carousel, CarouselContent, CarouselItem, CarouselApi } from '../ui/carousel';
+import Autoplay from "embla-carousel-autoplay";
+
+const imageData = [
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.57.51_4f68c0f1.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.57.57_b7461050.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.57.51_4f68c0f1.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.57.57_b7461050.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.58.14_3478efef.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.58.34_1bdbae8c.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.58.34_b4e99901.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.58.57_0566c6cb.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.58.57_f27fa776.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.59.20_1d0a6143.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.59.20_66312338.jpg",
+  "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2023.00.05_3c16a606.jpg"
+]
 
 const verseData = [
   {
     id: 1,
-    lyric: "I'm running, running, chasing the rhythm.",
-    songTitle: "Running"
+    lyric: "The Sounds of my Soul",
+    songTitle: "Yasho",
   },
   {
     id: 2,
-    lyric: "Warte nicht auf deine träume. Laufen so schnell du kannst.(Don't wait for your dreams, run towards them!)",
-    songTitle: "Now or Never"
+    lyric: "We are swimming against the stream",
+    songTitle: "More Life Less Rules",
   },
   {
     id: 3,
-    lyric: "Life is a Song. And there's Magic Everywhere.",
-    songTitle: "Life"
-  }
+    lyric: "Give me snowflakes in summer",
+    songTitle: "Magic Touch",
+  },
+  {
+    id: 4,
+    lyric: "No need to hide\nNo need to run\nNo need to cry\nLife is a Song and there's Magic everywhere",
+    songTitle: "Life",
+  },
+  {
+    id: 5,
+    lyric: "Imfundo ibalulekile empilweni yomuntu",
+    songTitle: "Nghehelwa Umoya",
+  },
 ];
 
+// Helper to shuffle an array
+const shuffleArray = (array: any[]) => {
+    let currentIndex = array.length, randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+};
+
 const VerseHighlights = () => {
+  const plugin = useRef(
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: true,
+      stopOnMouseEnter: true,
+    })
+  );
+
+  const [emblaApi, setEmblaApi] = useState<CarouselApi | null>(null);
+  const [randomizedImageUrls, setRandomizedImageUrls] = useState<string[]>([]);
+
+  // Extract all image URLs from verseData
+  const allImageUrls = useRef(imageData);
+
+  useEffect(() => {
+    // Initialize randomizedImageUrls with a shuffled version of all image URLs
+    setRandomizedImageUrls(shuffleArray([...allImageUrls.current]));
+  }, []); // Run only once on mount
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      const index = emblaApi.selectedScrollSnap();
+      // If the carousel loops back to the first item (index 0), reshuffle images
+      // Embla carousel fires 'select' on initialization as well, so this will run once
+      // to initially set the images, and then again when the loop completes.
+      if (index === 0) {
+        setRandomizedImageUrls(shuffleArray([...allImageUrls.current]));
+      }
+    };
+
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect); // Also re-shuffle on re-initialization
+
+    return () => {
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
+    };
+  }, [emblaApi]);
+
+
   return (
-    <section id="verses" className="py-16 sm:py-24">
-      <h2 className="text-4xl sm:text-5xl font-headline font-bold text-center text-primary mb-16">Verse Highlights</h2>
-      <div className="relative overflow-hidden">
-        <Image
-          src="https://storage.googleapis.com/techfusion-alchemy-bucket/karin/Screenshot_7-7-2025_4717_www.instagram.com.jpeg"
-          layout="fill"
-          objectFit="cover"
-          alt="Evocative portrait of Karin Kedem"
-          className="z-0 opacity-40"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
-        {/* Make this content relative and layered above the image */}
-        <div className="relative z-20 space-y-16 max-w-3xl mx-auto">
-          {verseData.map((verse) => (
-            <blockquote key={verse.id} className="text-center">
-              <p className="text-2xl sm:text-3xl font-headline italic text-foreground/80 leading-loose">
-                &ldquo;{verse.lyric}&rdquo;
-              </p>
-              <cite className="block mt-4 text-md text-muted-foreground not-italic">
-                &mdash; from &ldquo;{verse.songTitle}&rdquo;
-              </cite>
-            </blockquote>
+    <section id="verses" className="py-16 sm:py-24 bg-background relative overflow-hidden">
+      <h2 className="text-4xl sm:text-5xl font-headline font-bold text-center text-primary mb-16 relative z-20">Verse Highlights</h2>
+
+      <Carousel
+        setApi={setEmblaApi} // Use setApi to get the Embla API instance
+        plugins={[plugin.current]}
+        className="w-full max-w-4xl mx-auto"
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.play}
+        opts={{ loop: true }} // Ensure looping is enabled for "rotation"
+      >
+        <CarouselContent>
+          {verseData.map((verse, index) => ( // Get index from map
+            <CarouselItem key={verse.id}>
+              <div className="relative w-full h-[500px] sm:h-[600px] flex items-center justify-center">
+                <Image
+                  src={randomizedImageUrls[index % randomizedImageUrls.length] || "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png"} // Use randomized image based on index
+                  fill
+                  style={{ objectFit: "cover" }}
+                  alt={`Background for ${verse.songTitle}`}
+                  className="z-0 opacity-90 filter brightness-95"
+                  priority
+                />
+                
+                <div className="relative z-20 text-center p-6 bg-card/60 rounded-lg max-w mx-auto backdrop-blur-sm shadow-xl">
+                  <p className="text-3xl sm:text-4xl font-headline italic text-white text-primary-foreground leading-snug drop-shadow-md">
+                    &ldquo;{verse.lyric}&rdquo;
+                  </p>
+                  <cite className="block mt-6 text-lg text-muted text-primary-foreground font-semibold not-italic opacity-90">
+                    &mdash; from &ldquo;{verse.songTitle}&rdquo;
+                  </cite>
+                </div>
+              </div>
+            </CarouselItem>
           ))}
-        </div>
-      </div>
+        </CarouselContent>
+      </Carousel>
     </section>
   );
 };

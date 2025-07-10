@@ -23,6 +23,7 @@ interface MusicData {
   links?: MusicLink[];
   aiHint: string;
   year: number;
+  genre: string;
 }
 
 const musicData: MusicData[] = [
@@ -34,7 +35,8 @@ const musicData: MusicData[] = [
     type: 'youtube',
     embedId: 'Tsk4jCHtYZk', // Example YouTube video ID
     aiHint: 'ngehlelwa umoya',
-    year: 2016
+    year: 2016,
+    genre: 'Maskandi, Afro Gospel'
   },
   {
     id: 2,
@@ -44,7 +46,8 @@ const musicData: MusicData[] = [
     type: 'youtube',
     embedId: '-oca8xbsZUU', // Example YouTube video ID
     aiHint: 'isikhiye sempilo',
-    year: 2016
+    year: 2016,
+    genre: 'Maskandi, Afro Gospel'
   },
   {
     id: 3,
@@ -54,7 +57,8 @@ const musicData: MusicData[] = [
     type: 'youtube',
     embedId: 'TUzltsVpRk0', // Example YouTube video ID
     aiHint: 'now or never',
-    year: 2017
+    year: 2017,
+    genre: 'Dance, House'
   },
   {
     id: 4,
@@ -69,17 +73,19 @@ const musicData: MusicData[] = [
       }
     ],
     aiHint: 'now or never',
-    year: 2018
+    year: 2018,
+    genre: 'Deep House, Dance, House'
   },
   {
     id: 5,
     title: 'As Long As I Live',
     artist: 'Dinkie',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/IMG-20210407-WA0000.jpg',
     type: 'youtube',
     embedId: 'YSIZVC-d7MA', // Example YouTube video ID
     aiHint: 'as long as I live song',
-    year: 2019
+    year: 2019,
+    genre: 'Jazz-Soul'
   },
   {
     id: 6,
@@ -94,7 +100,8 @@ const musicData: MusicData[] = [
       }
     ],
     aiHint: 'wathi uyosebenza',
-    year: 2020
+    year: 2020,
+    genre: 'Maskandi'
   },
   {
     id: 7,
@@ -106,19 +113,21 @@ const musicData: MusicData[] = [
       { platform: 'Songwhip', url: 'https://songwhip.com/djlation/summer-rain' }
     ],
     aiHint: 'summer rain',
-    year: 2023
+    year: 2023,
+    genre: 'Dance'
   },
   {
     id: 8,
     title: 'Sesbuyile',
     artist: 'Jaiva Zimnike, AmaAk47',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/Sesbuyile.jpg',
     type: 'external',
     links: [
       { platform: 'Spotify', url: 'https://open.spotify.com/track/3biyfoeDqMg9YSZOsWsFlg?si=QEHnjmFbQSGsGb8t1bhm5Q' },
     ],
     aiHint: 'sesbuyile',
-    year: 2022
+    year: 2022,
+    genre: 'Gqom, Kwaito Fusion'
   },
   {
     id: 9,
@@ -131,7 +140,8 @@ const musicData: MusicData[] = [
     ],
     embedId: "pe_qBzBedWE",
     aiHint: 'running',
-    year: 2023
+    year: 2023,
+    genre: 'Afro-Deep, House'
   },
   {
     id: 10,
@@ -144,7 +154,8 @@ const musicData: MusicData[] = [
     ],
     embedId: "KADP-HJd6jk",
     aiHint: 'running',
-    year: 2023
+    year: 2023,
+    genre: 'Afro-Deep, House, Kwaito-House'
   },
   {
     id: 11,
@@ -157,12 +168,13 @@ const musicData: MusicData[] = [
     ],
     embedId: "TfrrRNrUorM",
     aiHint: 'running',
-    year: 2023
+    year: 2023,
+    genre: 'Ballad'
   },
   {
     id: 12,
     title: 'Lollipops',
-    artist: 'Inkie, Tall Baby Mellow, Cristian I.G. Alvarez',
+    artist: 'Dinkie, Tall Baby Mellow, Cristian I.G. Alvarez',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/lollipops.jpg',
     type: 'hybrid',
     links: [
@@ -170,33 +182,36 @@ const musicData: MusicData[] = [
     ],
     embedId: "-J2RX2P14Dw",
     aiHint: 'running',
-    year: 2023
+    year: 2023,
+    genre: 'Maskandi, Afro Gospel'
   },
   {
     id: 13,
     title: 'Masihlanganeni / Unite',
     artist: 'Songqongqo',
-    thumbnail: 'https://placehold.co/600x600.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/unite-masihlanganeni' },
     ],
     embedId: "WkVjHMJTTds",
     aiHint: 'running',
-    year: 2024
+    year: 2024,
+    genre: 'Maskandi, Afro Gospel'
   },
   {
     id: 14,
     title: 'Izimbali',
-    artist: 'Chrs Nino, Sibah Musiq',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/unite.jpg',
+    artist: 'Chris Nino, Sibah Musiq',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/IMG-20241119-WA0008.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/izimbali' },
     ],
     embedId: "3APabGq7ZDk",
     aiHint: 'running',
-    year: 2024
+    year: 2024,
+    genre: 'Afro Soul'
   },
   {
     id: 15,
@@ -209,12 +224,13 @@ const musicData: MusicData[] = [
     ],
     embedId: "b5vL57NihTU",
     aiHint: 'running',
-    year: 2024
+    year: 2024,
+    genre: 'Trap Soul'
   },
   {
     id: 16,
     title: 'More Life Less Rules',
-    artist: 'Chrs Nino',
+    artist: 'Chris Nino',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/more-life-less-rules.jpg',
     type: 'hybrid',
     links: [
@@ -222,12 +238,13 @@ const musicData: MusicData[] = [
     ],
     embedId: "0Ro8FpFuusg",
     aiHint: 'running',
-    year: 2024
+    year: 2024,
+    genre: 'Alternative Hip-Hop'
   },
   {
     id: 17,
     title: 'Magic Touch',
-    artist: 'Chrs Nino',
+    artist: 'Chris Nino',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/magic-touch.jpg',
     type: 'hybrid',
     links: [
@@ -236,7 +253,8 @@ const musicData: MusicData[] = [
     ],
     embedId: "FoniSVP7Od8",
     aiHint: 'running',
-    year: 2024
+    year: 2024,
+    genre: 'R&B, Electronic Fusion'
   },
   {
     id: 18,
@@ -249,7 +267,8 @@ const musicData: MusicData[] = [
     ],
     embedId: "G3nZDO0b2eU",
     aiHint: 'running',
-    year: 2024
+    year: 2024,
+    genre: 'Amapiano, Groove'
   },
   {
     id: 19,
@@ -262,7 +281,8 @@ const musicData: MusicData[] = [
     ],
     embedId: "1fwn4fPUKJ4",
     aiHint: 'running',
-    year: 2024
+    year: 2024,
+    genre: 'Afrohouse, Ambient Chill'
   },
   {
     id: 20,
@@ -275,7 +295,8 @@ const musicData: MusicData[] = [
     ],
     embedId: "rYK5EtERtRA",
     aiHint: 'running',
-    year: 2025
+    year: 2025,
+    genre: 'Maskandi, Afro Soul'
   },
   {
     id: 21,
@@ -285,7 +306,8 @@ const musicData: MusicData[] = [
     type: 'youtube',
     embedId: "YWUmF%LJT-4",
     aiHint: 'running',
-    year: 2025
+    year: 2025,
+    genre: 'House, Pop Fusion'
   },
   {
     id: 22,
@@ -298,7 +320,8 @@ const musicData: MusicData[] = [
     ],
     embedId: "bMp4r4HdSfI",
     aiHint: 'running',
-    year: 2025
+    year: 2025,
+    genre: 'House, Afro-Experimental, Alt-Hop'
   },
   {
     id: 23,
@@ -308,7 +331,8 @@ const musicData: MusicData[] = [
     type: 'youtube',
     embedId: "JVFwGEOZBss",
     aiHint: 'running',
-    year: 2025
+    year: 2025,
+    genre: 'Amapiano'
   },
   {
     id: 24,
@@ -320,7 +344,8 @@ const musicData: MusicData[] = [
       { platform: "DistroKid", url: "https://distrokid.com/hyperfollow/feym1/tanzen-feat-karin-kedem-radio-edit" }
     ],
     aiHint: 'running',
-    year: 2025
+    year: 2025,
+    genre: 'Electro House, Global Dance'
   },
 ];
 
@@ -331,8 +356,9 @@ const MusicGallery = () => {
   const [filterType, setFilterType] = useState('all');
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterYear, setFilterYear] = useState('all');
+  const [filterGenre, setFilterGenre]=useState('all');
   const [visibleSongsCount, setVisibleSongsCount] = useState(6);
-
+  const sortedData: MusicData[]  = musicData.sort((a, b)=> b.id - a.id);
   const openModal = (song: MusicData) => {
     setSelectedSong(song);
     setIsModalOpen(true);
@@ -344,12 +370,13 @@ const MusicGallery = () => {
   };
 
   const filteredMusic = useMemo(() => {
-    let filtered = musicData;
+    let filtered = sortedData;
 
     if (searchTerm) {
       filtered = filtered.filter(song =>
         song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        song.artist.toLowerCase().includes(searchTerm.toLowerCase())
+        song.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        song.genre.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
@@ -364,12 +391,14 @@ const MusicGallery = () => {
     if (filterYear !== 'all') {
       filtered = filtered.filter(song => song.year === parseInt(filterYear));
     }
+    if (filterGenre !== 'all'){
+      filtered = filtered.filter(song => song.genre.includes(filterGenre));
+    }
 
     return filtered;
-  }, [searchTerm, filterType, filterArtist, filterYear]);
+  }, [searchTerm, filterType, filterArtist, filterYear, filterGenre]);
 
   const displayedMusic = filteredMusic.slice(0, visibleSongsCount);
-
   const handleSeeMore = () => {
     setVisibleSongsCount(prevCount => prevCount + 6);
   };
@@ -377,7 +406,7 @@ const MusicGallery = () => {
   // Get unique artists and years for filter options
   const uniqueArtists = useMemo(() => {
     const artists = new Set<string>();
-    musicData.forEach(song => {
+    sortedData.forEach(song => {
       song.artist.split(', ').forEach(artist => artists.add(artist.trim()));
     });
     return ['all', ...Array.from(artists).sort()];
@@ -385,9 +414,17 @@ const MusicGallery = () => {
 
   const uniqueYears = useMemo(() => {
     const years = new Set<number>();
-    musicData.forEach(song => years.add(song.year));
+    sortedData.forEach(song => years.add(song.year));
     return ['all', ...Array.from(years).sort((a, b) => b - a).map(String)];
   }, []);
+
+  const uniqueGenres = useMemo(() => {
+    const genres = new Set<string>();
+    sortedData.forEach(song => {
+      song.genre.split(', ').forEach(genre => genres.add(genre.trim()));
+    });
+    return ['all', ...Array.from(genres).sort((a, b) => a.localeCompare(b))];
+  }, [])
 
   return (
     <section id="music" className="py-16 sm:py-24">
@@ -452,6 +489,22 @@ const MusicGallery = () => {
             ))}
           </SelectContent>
         </Select>
+        <Select
+          value={filterGenre}
+          onValueChange={(value) => {
+            setFilterGenre(value);
+            setVisibleSongsCount(6); // Reset visible count on filter change
+          }}
+        >
+          <SelectTrigger className="w-full sm:w-1/5">
+            <SelectValue placeholder="Filter by Genre" />
+          </SelectTrigger>
+          <SelectContent>
+            {uniqueGenres.map(genre => (
+              <SelectItem key={genre} value={genre}>{genre === 'all' ? 'All Genres' : genre}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12">
@@ -465,8 +518,8 @@ const MusicGallery = () => {
               <div className="relative aspect-square overflow-hidden">
                 <Image 
                   src={song.thumbnail} 
-                  layout="fill" 
-                  objectFit="cover" 
+                  fill
+                  style={{ objectFit: "cover" }}
                   alt={song.title} 
                   className="transition-transform duration-500 group-hover:scale-110"
                   data-ai-hint={song.aiHint}
