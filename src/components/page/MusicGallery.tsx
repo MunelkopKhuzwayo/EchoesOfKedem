@@ -313,7 +313,7 @@ const musicData: MusicData[] = [
     id: 22,
     title: "Prince",
     artist: 'Tsumba',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/prince.jpg',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-10%20at%2009.52.41_0e07fb6b.jpg',
     type: 'hybrid',
     links: [
       { platform: "Ditto", url: "https://ditto.fm/prince-tsumba" }

@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="text-center py-12 mt-16 border-t border-border/20">
       <h3 className="font-headline text-2xl text-primary">Get in Touch</h3>
-      <p className="text-muted-foreground mt-2 mb-4">For bookings and inquiries, please reach out.</p>
+      <p className="text-muted-foreground mt-2 mb-4">For bookings and inquiries, feel free to contact via email.</p>
       <a href="mailto:karinkedem14@gmail.com" className="text-accent-foreground font-semibold text-white hover:underline underline-offset-4">
         Karin Kedem's Email
       </a>

@@ -9,6 +9,7 @@ const HeroSection = () => {
         <Image 
           src="https://storage.googleapis.com/techfusion-alchemy-bucket/karin/WhatsApp%20Image%202025-07-09%20at%2022.57.51_4f68c0f1.jpg" 
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ objectFit: "cover" }}
           alt="Evocative portrait of Karin Kedem" 
           className=""
@@ -24,7 +25,7 @@ const HeroSection = () => {
         <h1 className="text-5xl sm:text-7xl md:text-8xl font-headline font-bold text-primary tracking-tight">
           Karin Kedem
         </h1>
-        <p className="mt-6 text-gray text-lg sm:text-xl max-w-2xl mx-auto text-primary-foreground leading-relaxed">
+        <p className="mt-6 text-white text-lg sm:text-xl max-w-2xl mx-auto text-primary-foreground leading-relaxed">
           Timeless. Colourful. Spontaneous.
         </p>
         <div className="flex justify-center items-center space-x-6 mt-8">

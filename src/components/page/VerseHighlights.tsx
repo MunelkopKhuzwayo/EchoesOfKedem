@@ -28,23 +28,23 @@ const verseData = [
   },
   {
     id: 2,
-    lyric: "We are swimming against the stream",
+    lyric: "We are Swimming against the Stream",
     songTitle: "More Life Less Rules",
   },
   {
     id: 3,
-    lyric: "Give me snowflakes in summer",
+    lyric: "Give me Snowflakes in Summer",
     songTitle: "Magic Touch",
   },
   {
     id: 4,
-    lyric: "No need to hide\nNo need to run\nNo need to cry\nLife is a Song and there's Magic everywhere",
+    lyric:  `No need to hide, No need to run, No need to cry, Life is a Song and there's Magic everywhere`,
     songTitle: "Life",
   },
   {
     id: 5,
     lyric: "Imfundo ibalulekile empilweni yomuntu",
-    songTitle: "Nghehelwa Umoya",
+    songTitle: "Ngehlelwa Umoya",
   },
 ];
 
@@ -129,6 +129,7 @@ const VerseHighlights = () => {
                 <Image
                   src={randomizedImageUrls[index % randomizedImageUrls.length] || "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png"} // Use randomized image based on index
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: "cover" }}
                   alt={`Background for ${verse.songTitle}`}
                   className="z-0 opacity-90 filter brightness-95"
@@ -139,7 +140,7 @@ const VerseHighlights = () => {
                   <p className="text-3xl sm:text-4xl font-headline italic text-white text-primary-foreground leading-snug drop-shadow-md">
                     &ldquo;{verse.lyric}&rdquo;
                   </p>
-                  <cite className="block mt-6 text-lg text-muted text-primary-foreground font-semibold not-italic opacity-90">
+                  <cite className="block mt-6 text-lg text-white text-primary-foreground font-semibold not-italic opacity-90">
                     &mdash; from &ldquo;{verse.songTitle}&rdquo;
                   </cite>
                 </div>
