@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Echoes of Karin',
+  title: 'Karin Kedem Music',
   description: 'Karin Kedem, Art, Life, and Music',
 };
 
