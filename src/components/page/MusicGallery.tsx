@@ -189,7 +189,7 @@ const musicData: MusicData[] = [
     id: 13,
     title: 'Masihlanganeni / Unite',
     artist: 'Songqongqo',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/unite.jpg',
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/unite-masihlanganeni' },
@@ -346,6 +346,17 @@ const musicData: MusicData[] = [
     aiHint: 'running',
     year: 2025,
     genre: 'Electro House, Global Dance'
+  },
+  {
+    id: 25,
+    title: "My Loved One",
+    artist: 'Size 10',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/my%20loved%20one.jpg',
+    type: 'youtube',
+    embedId: "2QH1eCWTDAQ",
+    aiHint: 'my loved one',
+    year: 2025,
+    genre: 'Maskandi, Soul'
   },
 ];
 
