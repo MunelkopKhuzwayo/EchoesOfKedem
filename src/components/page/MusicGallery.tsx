@@ -23,7 +23,6 @@ interface MusicData {
   links?: MusicLink[];
   aiHint: string;
   year: number;
-  genre: string;
 }
 
 const musicData: MusicData[] = [
@@ -33,10 +32,9 @@ const musicData: MusicData[] = [
     artist: 'Jaiva Zimnike',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/ngehlelwa-umoya.jpg',
     type: 'youtube',
-    embedId: 'Tsk4jCHtYZk', // Example YouTube video ID
+    embedId: 'Tsk4jCHtYZk', 
     aiHint: 'ngehlelwa umoya',
     year: 2016,
-    genre: 'Maskandi, Afro Gospel'
   },
   {
     id: 2,
@@ -44,10 +42,9 @@ const musicData: MusicData[] = [
     artist: 'Jaiva Zimnike',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/isikhiye-sempilo.jpg',
     type: 'youtube',
-    embedId: '-oca8xbsZUU', // Example YouTube video ID
+    embedId: '-oca8xbsZUU',
     aiHint: 'isikhiye sempilo',
-    year: 2016,
-    genre: 'Maskandi, Afro Gospel'
+    year: 2017,
   },
   {
     id: 3,
@@ -55,10 +52,9 @@ const musicData: MusicData[] = [
     artist: 'DJ Chronic Style, Jaiva Zimnike',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/now-or-never.jpg',
     type: 'youtube',
-    embedId: 'TUzltsVpRk0', // Example YouTube video ID
+    embedId: 'TUzltsVpRk0',
     aiHint: 'now or never',
-    year: 2017,
-    genre: 'Dance, House'
+    year: 2018,
   },
   {
     id: 4,
@@ -74,7 +70,6 @@ const musicData: MusicData[] = [
     ],
     aiHint: 'now or never',
     year: 2018,
-    genre: 'Deep House, Dance, House'
   },
   {
     id: 5,
@@ -85,7 +80,6 @@ const musicData: MusicData[] = [
     embedId: 'YSIZVC-d7MA', // Example YouTube video ID
     aiHint: 'as long as I live song',
     year: 2019,
-    genre: 'Jazz-Soul'
   },
   {
     id: 6,
@@ -101,7 +95,6 @@ const musicData: MusicData[] = [
     ],
     aiHint: 'wathi uyosebenza',
     year: 2020,
-    genre: 'Maskandi'
   },
   {
     id: 7,
@@ -114,7 +107,6 @@ const musicData: MusicData[] = [
     ],
     aiHint: 'summer rain',
     year: 2023,
-    genre: 'Dance'
   },
   {
     id: 8,
@@ -127,7 +119,6 @@ const musicData: MusicData[] = [
     ],
     aiHint: 'sesbuyile',
     year: 2022,
-    genre: 'Gqom, Kwaito Fusion'
   },
   {
     id: 9,
@@ -141,7 +132,6 @@ const musicData: MusicData[] = [
     embedId: "pe_qBzBedWE",
     aiHint: 'running',
     year: 2023,
-    genre: 'Afro-Deep, House'
   },
   {
     id: 10,
@@ -153,9 +143,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://ditto.fm/life-soniq-t-dj-coolio-featuring-karin-kedem' },
     ],
     embedId: "KADP-HJd6jk",
-    aiHint: 'running',
+    aiHint: 'life',
     year: 2023,
-    genre: 'Afro-Deep, House, Kwaito-House'
   },
   {
     id: 11,
@@ -167,9 +156,8 @@ const musicData: MusicData[] = [
       { platform: 'Spotify', url: 'https://open.spotify.com/track/4Xq2gXG3w9tcgwVwQsHhkE?si=99ni4oLAQRCpy3H5J5CAxw' },
     ],
     embedId: "TfrrRNrUorM",
-    aiHint: 'running',
+    aiHint: 'on my knees',
     year: 2023,
-    genre: 'Ballad'
   },
   {
     id: 12,
@@ -181,9 +169,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://ditto.fm/lollipops' },
     ],
     embedId: "-J2RX2P14Dw",
-    aiHint: 'running',
+    aiHint: 'lollipops',
     year: 2023,
-    genre: 'Maskandi, Afro Gospel'
   },
   {
     id: 13,
@@ -195,9 +182,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://ditto.fm/unite-masihlanganeni' },
     ],
     embedId: "WkVjHMJTTds",
-    aiHint: 'running',
+    aiHint: 'masihlanganeni, unite',
     year: 2024,
-    genre: 'Maskandi, Afro Gospel'
   },
   {
     id: 14,
@@ -209,9 +195,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://ditto.fm/izimbali' },
     ],
     embedId: "3APabGq7ZDk",
-    aiHint: 'running',
+    aiHint: 'izimbali',
     year: 2024,
-    genre: 'Afro Soul'
   },
   {
     id: 15,
@@ -223,9 +208,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://ditto.fm/izimbali' },
     ],
     embedId: "b5vL57NihTU",
-    aiHint: 'running',
+    aiHint: 'nothing can stop us',
     year: 2024,
-    genre: 'Trap Soul'
   },
   {
     id: 16,
@@ -237,9 +221,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://ditto.fm/more-life-chrsnino' },
     ],
     embedId: "0Ro8FpFuusg",
-    aiHint: 'running',
+    aiHint: 'more life less rules',
     year: 2024,
-    genre: 'Alternative Hip-Hop'
   },
   {
     id: 17,
@@ -252,9 +235,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto(alt)', url: 'https://ditto.fm/magic-touch-karin-kedem'}
     ],
     embedId: "FoniSVP7Od8",
-    aiHint: 'running',
+    aiHint: 'magic touch',
     year: 2024,
-    genre: 'R&B, Electronic Fusion'
   },
   {
     id: 18,
@@ -266,9 +248,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://ditto.fm/dance-all-night-sibah-musiq' },
     ],
     embedId: "G3nZDO0b2eU",
-    aiHint: 'running',
+    aiHint: 'dance all night',
     year: 2024,
-    genre: 'Amapiano, Groove'
   },
   {
     id: 19,
@@ -280,9 +261,8 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://soldistro.Ink.to/iKhweziLokusa!share' },
     ],
     embedId: "1fwn4fPUKJ4",
-    aiHint: 'running',
+    aiHint: 'liphupho',
     year: 2024,
-    genre: 'Afrohouse, Ambient Chill'
   },
   {
     id: 20,
@@ -294,20 +274,18 @@ const musicData: MusicData[] = [
       { platform: 'Ditto', url: 'https://song.link/sthandwasami' },
     ],
     embedId: "rYK5EtERtRA",
-    aiHint: 'running',
+    aiHint: 'sthandwa sami',
     year: 2025,
-    genre: 'Maskandi, Afro Soul'
   },
   {
     id: 21,
     title: "I'm Next",
     artist: 'Dinkie',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/im%20next.jpg',
     type: 'youtube',
     embedId: "YWUmF%LJT-4",
-    aiHint: 'running',
+    aiHint: "i'm next",
     year: 2025,
-    genre: 'House, Pop Fusion'
   },
   {
     id: 22,
@@ -319,20 +297,21 @@ const musicData: MusicData[] = [
       { platform: "Ditto", url: "https://ditto.fm/prince-tsumba" }
     ],
     embedId: "bMp4r4HdSfI",
-    aiHint: 'running',
+    aiHint: 'prince',
     year: 2025,
-    genre: 'House, Afro-Experimental, Alt-Hop'
   },
   {
     id: 23,
     title: "Yasho",
     artist: 'Sibah Musiq',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/yasho.jpg',
-    type: 'youtube',
+    type: 'hybrid',
+    links: [
+      { platform: "Ditto", url: "https://ditto.fm/yasho-sibah-musiq" }
+    ],
     embedId: "JVFwGEOZBss",
-    aiHint: 'running',
+    aiHint: 'yasho',
     year: 2025,
-    genre: 'Amapiano'
   },
   {
     id: 24,
@@ -343,20 +322,66 @@ const musicData: MusicData[] = [
     links: [
       { platform: "DistroKid", url: "https://distrokid.com/hyperfollow/feym1/tanzen-feat-karin-kedem-radio-edit" }
     ],
-    aiHint: 'running',
+    aiHint: 'tanzen',
     year: 2025,
-    genre: 'Electro House, Global Dance'
   },
   {
     id: 25,
     title: "My Loved One",
     artist: 'Size 10',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/my%20loved%20one.jpg',
-    type: 'youtube',
+    type: 'hybrid',
+    links: [
+      { platform: "Spotify", url: "https://open.spotify.com/album/64vILFJDqluSlQKAj2sfCf?si=fdopJdTiRNq2nbPrQaD9gA&context=spotify%3Aalbum%3A64vILFJDqluSlQKAj2sfCf" }
+    ],
     embedId: "2QH1eCWTDAQ",
     aiHint: 'my loved one',
     year: 2025,
-    genre: 'Maskandi, Soul'
+  },
+  {
+    id: 26,
+    title: "Unseen",
+    artist: 'DJ Soniq T',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/unseen.jpg',
+    type: 'coming-soon',
+    aiHint: 'unseen',
+    year: 2025,
+  },
+  {
+    id: 27,
+    title: "Sakhethana Kahle",
+    artist: 'Jaiva Zimnike, Sibah Music',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    type: 'coming-soon',
+    aiHint: 'sakhethana kahle',
+    year: 2025,
+  },
+  {
+    id: 28,
+    title: "Hello",
+    artist: 'King Ginger',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    type: 'coming-soon',
+    aiHint: 'hello',
+    year: 2025,
+  },
+  {
+    id: 29,
+    title: "-",
+    artist: 'KSquare',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    type: 'coming-soon',
+    aiHint: '-',
+    year: 2025,
+  },
+  {
+    id: 30,
+    title: "Sparkle",
+    artist: 'DJ SoniqT',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    type: 'coming-soon',
+    aiHint: 'sparkle',
+    year: 2025,
   },
 ];
 
@@ -367,7 +392,6 @@ const MusicGallery = () => {
   const [filterType, setFilterType] = useState('all');
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterYear, setFilterYear] = useState('all');
-  const [filterGenre, setFilterGenre]=useState('all');
   const [visibleSongsCount, setVisibleSongsCount] = useState(6);
   const sortedData: MusicData[]  = musicData.sort((a, b)=> b.id - a.id);
   const openModal = (song: MusicData) => {
@@ -386,9 +410,7 @@ const MusicGallery = () => {
     if (searchTerm) {
       filtered = filtered.filter(song =>
         song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        song.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        song.genre.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+        song.artist.toLowerCase().includes(searchTerm.toLowerCase()) );
     }
 
     if (filterType !== 'all') {
@@ -402,12 +424,9 @@ const MusicGallery = () => {
     if (filterYear !== 'all') {
       filtered = filtered.filter(song => song.year === parseInt(filterYear));
     }
-    if (filterGenre !== 'all'){
-      filtered = filtered.filter(song => song.genre.includes(filterGenre));
-    }
 
     return filtered;
-  }, [searchTerm, filterType, filterArtist, filterYear, filterGenre]);
+  }, [searchTerm, filterType, filterArtist, filterYear]);
 
   const displayedMusic = filteredMusic.slice(0, visibleSongsCount);
   const handleSeeMore = () => {
@@ -429,17 +448,12 @@ const MusicGallery = () => {
     return ['all', ...Array.from(years).sort((a, b) => b - a).map(String)];
   }, []);
 
-  const uniqueGenres = useMemo(() => {
-    const genres = new Set<string>();
-    sortedData.forEach(song => {
-      song.genre.split(', ').forEach(genre => genres.add(genre.trim()));
-    });
-    return ['all', ...Array.from(genres).sort((a, b) => a.localeCompare(b))];
-  }, [])
-
   return (
     <section id="music" className="py-16 sm:py-24">
-      <h2 className="text-4xl sm:text-5xl font-headline font-bold text-center text-primary mb-16">Featured On</h2>
+      <header className="text-center my-12 md:my-16">
+        <h1 className="text-4xl sm:text-5xl font-headline font-bold text-center text-primary mb-16">Featured On</h1>
+        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">A curated list of every track I've been featured on—brought together in one place.</p> 
+      </header>
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
         <Input
           type="text"
@@ -500,22 +514,6 @@ const MusicGallery = () => {
             ))}
           </SelectContent>
         </Select>
-        <Select
-          value={filterGenre}
-          onValueChange={(value) => {
-            setFilterGenre(value);
-            setVisibleSongsCount(6); // Reset visible count on filter change
-          }}
-        >
-          <SelectTrigger className="w-full sm:w-1/5">
-            <SelectValue placeholder="Filter by Genre" />
-          </SelectTrigger>
-          <SelectContent>
-            {uniqueGenres.map(genre => (
-              <SelectItem key={genre} value={genre}>{genre === 'all' ? 'All Genres' : genre}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12">
@@ -541,10 +539,14 @@ const MusicGallery = () => {
                 <p className="text-muted-foreground mt-1 text-sm">with {song.artist}</p>
                 <Button asChild variant="link" className="px-0 mt-4 text-accent-foreground group-hover:text-primary">
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a onClick={(e) => { e.stopPropagation(); openModal(song); }}>
+                  { song.type == 'coming-soon' ? (
+                    <p>
+                    Coming Soon
+                  </p>) : (
+                    <a onClick={(e) => { e.stopPropagation(); openModal(song); }}>
                     Listen Now
                     <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">&rarr;</span>
-                  </a>
+                  </a>)}
                 </Button>
               </div>
             </CardContent>

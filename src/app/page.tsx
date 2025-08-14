@@ -4,6 +4,7 @@ import HeroSection from '@/components/page/HeroSection';
 import MusicGallery from '@/components/page/MusicGallery';
 import VerseHighlights from '@/components/page/VerseHighlights';
 import Footer from '@/components/page/Footer';
+import AssociatesSection from '@/components/page/AssociatesSection'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           <MusicGallery />
           <Separator className="my-16 sm:my-24 bg-border/20" />
           <VerseHighlights />
+          <AssociatesSection />
         </main>
         <Footer />
       </div>

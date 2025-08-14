@@ -20,7 +20,6 @@ interface MusicData {
   links?: MusicLink[];
   aiHint: string;
   year: number;
-  genre: string;
 }
 
 interface MusicModalProps {
@@ -106,7 +105,7 @@ const MusicModal: React.FC<MusicModalProps> = ({ isOpen, onClose, song }) => {
           ) : (
             <div className="p-6 flex flex-col justify-center items-center h-full">
               <h3 className="text-2xl font-headline font-semibold text-primary mb-4">
-                Song Not Found
+                Coming Soon. Stay Tuned for More Information!
               </h3>
             </div>
           )}

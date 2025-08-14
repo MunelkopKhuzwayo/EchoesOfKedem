@@ -109,25 +109,27 @@ const VerseHighlights = () => {
     };
   }, [emblaApi]);
 
-
   return (
     <section id="verses" className="py-16 sm:py-24 bg-background relative overflow-hidden">
-      <h2 className="text-4xl sm:text-5xl font-headline font-bold text-center text-primary mb-16 relative z-20">Verse Highlights</h2>
-
+      <header className="text-center my-12 md:my-16">
+        <h1 className="text-4xl sm:text-5xl font-headline font-bold text-center text-primary mb-16 relative z-20">Verse Highlights</h1>
+        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">Handpicked lines from the songs that resonate most with me.</p> 
+      </header>
       <Carousel
         setApi={setEmblaApi} // Use setApi to get the Embla API instance
         plugins={[plugin.current]}
         className="w-full max-w-4xl mx-auto"
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.play}
+        onMouseEnter={() => plugin.current.stop}
+        onMouseLeave={() => plugin.current.play}
         opts={{ loop: true }} // Ensure looping is enabled for "rotation"
       >
         <CarouselContent>
           {verseData.map((verse, index) => ( // Get index from map
             <CarouselItem key={verse.id}>
               <div className="relative w-full h-[500px] sm:h-[600px] flex items-center justify-center">
+                {/* Background image */}
                 <Image
-                  src={randomizedImageUrls[index % randomizedImageUrls.length] || "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png"} // Use randomized image based on index
+                  src={randomizedImageUrls[index % randomizedImageUrls.length] || "https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png"}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: "cover" }}
@@ -135,14 +137,33 @@ const VerseHighlights = () => {
                   className="z-0 opacity-90 filter brightness-95"
                   priority
                 />
-                
-                <div className="relative z-20 text-center p-6 bg-card/60 rounded-lg max-w mx-auto backdrop-blur-sm shadow-xl">
-                  <p className="text-3xl sm:text-4xl font-headline italic text-white text-primary-foreground leading-snug drop-shadow-md">
-                    &ldquo;{verse.lyric}&rdquo;
-                  </p>
-                  <cite className="block mt-6 text-lg text-white text-primary-foreground font-semibold not-italic opacity-90">
-                    &mdash; from &ldquo;{verse.songTitle}&rdquo;
-                  </cite>
+            
+                {/* Overlay buttons */}
+                <div className="absolute inset-0 flex items-center justify-between px-4 z-30">
+                  <button
+                    className="bg-transparent text-white text-3xl hover:text-primary transition"
+                    onClick={() => emblaApi?.scrollPrev()}
+                  >
+                    ◀
+                  </button>
+                  <button
+                    className="bg-transparent text-white text-3xl hover:text-primary transition"
+                    onClick={() => emblaApi?.scrollNext()}
+                  >
+                    ▶
+                  </button>
+                </div>
+            
+                {/* Quote content */}
+                <div className="absolute inset-0 z-20 flex items-center justify-center px-4">
+                  <div className="w-full max-w-4xl bg-card/60 rounded-lg backdrop-blur-sm shadow-xl p-6 text-center">
+                    <p className="text-3xl sm:text-4xl font-headline italic text-white text-primary-foreground leading-snug drop-shadow-md">
+                      &ldquo;{verse.lyric}&rdquo;
+                    </p>
+                    <cite className="block mt-6 text-lg text-white text-primary-foreground font-semibold not-italic opacity-90">
+                      &mdash; from &ldquo;{verse.songTitle}&rdquo;
+                    </cite>
+                  </div>
                 </div>
               </div>
             </CarouselItem>

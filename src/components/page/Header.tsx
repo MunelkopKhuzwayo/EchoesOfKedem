@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="absolute top-0 left-0 right-0 z-10">
       <div className="container mx-auto flex justify-between items-center p-4">
-        <a href="#" className="font-headline text-2xl font-bold text-primary">Karin Kedem Music</a>
+        <a href="#" className="font-headline text-4xl  font-bold text-primary">Karin Kedem Music</a>
         
         {/* Burger menu icon for small screens */}
         <div className="md:hidden">
@@ -45,19 +45,23 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#music" className="text-sm font-bold hover:text-primary transition-colors">Music</a>
-          <a href="#verses" className="text-sm font-bold hover:text-primary transition-colors">Verses</a>
-          <a href="#contact" className="text-sm font-boldm hover:text-primary transition-colors">Contact</a>
+          <a href="#music" className="text-2xl font-bold text-primary hover:text-primary transition-colors">Music</a>
+          <a href="#verses" className="text-2xl font-bold text-primary hover:text-primary transition-colors">Verses</a>
+          <a href="#associates" className="text-2xl font-bold text-primary hover:text-primary transition-colors">Associates</a>
+          <a href="#contact" className="text-2xl font-bold text-primary hover:text-primary transition-colors">Contact</a>
         </nav>
       </div>
 
       {/* Mobile Navigation (conditionally rendered) */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-opacity-50 absolute top-full left-0 right-0 py-4 shadow-lg z-50">
-          <div className="container mx-auto flex flex-col items-center space-y-4">
-            <a href="#music" className="text-sm font-bold hover:text-primary transition-colors" onClick={toggleMenu}>Music</a>
-            <a href="#verses" className="text-sm font-bold hover:text-primary transition-colors" onClick={toggleMenu}>Verses</a>
-            <a href="#contact" className="text-sm font-bold hover:text-primary transition-colors" onClick={toggleMenu}>Contact</a>
+        <nav className="md:hidden bg-opacity-90 absolute top-full left-0 right-0 py-4 shadow-lg z-50">
+          <div className="container mx-auto flex flex-row justify-between items-center">
+            <div></div>
+            <a href="#music" className="text-xl font-bold text-primary hover:text-white transition-colors" onClick={toggleMenu}>Music</a>
+            <a href="#verses" className="text-xl font-bold text-primary hover:text-white transition-colors" onClick={toggleMenu}>Verses</a>
+            <a href="#associates" className="text-xl font-bold text-primary hover:text-white transition-colors" onClick={toggleMenu}>Associates</a>
+            <a href="#contact" className="text-xl font-bold text-primary hover:text-white transition-colors" onClick={toggleMenu}>Contact</a>
+            <div></div>
           </div>
         </nav>
       )}
