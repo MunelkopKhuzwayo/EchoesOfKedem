@@ -188,7 +188,7 @@ const musicData: MusicData[] = [
   {
     id: 14,
     title: 'Izimbali',
-    artist: 'Chris Nino, Sibah Musiq',
+    artist: 'Sibah Musiq',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/IMG-20241119-WA0008.jpg',
     type: 'hybrid',
     links: [
@@ -214,7 +214,7 @@ const musicData: MusicData[] = [
   {
     id: 16,
     title: 'More Life Less Rules',
-    artist: 'Chris Nino',
+    artist: 'Karin Kedem',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/more-life-less-rules.jpg',
     type: 'hybrid',
     links: [
@@ -227,7 +227,7 @@ const musicData: MusicData[] = [
   {
     id: 17,
     title: 'Magic Touch',
-    artist: 'Chris Nino',
+    artist: 'Karin Kedem',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/magic-touch.jpg',
     type: 'hybrid',
     links: [
@@ -341,46 +341,20 @@ const musicData: MusicData[] = [
   {
     id: 26,
     title: "Unseen",
-    artist: 'DJ Soniq T',
+    artist: 'DJ SoniqT',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/unseen.jpg',
-    type: 'coming-soon',
+    type: 'youtube',
+    embedId: 'UvC9EH6i0mc',
     aiHint: 'unseen',
     year: 2025,
   },
   {
     id: 27,
     title: "Sakhethana Kahle",
-    artist: 'Jaiva Zimnike, Sibah Music',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
+    artist: 'Jaiva Zimnike, Sibah Musiq',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/sakhethana%20kahle.jpg',
     type: 'coming-soon',
     aiHint: 'sakhethana kahle',
-    year: 2025,
-  },
-  {
-    id: 28,
-    title: "Hello",
-    artist: 'King Ginger',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
-    type: 'coming-soon',
-    aiHint: 'hello',
-    year: 2025,
-  },
-  {
-    id: 29,
-    title: "-",
-    artist: 'KSquare',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
-    type: 'coming-soon',
-    aiHint: '-',
-    year: 2025,
-  },
-  {
-    id: 30,
-    title: "Sparkle",
-    artist: 'DJ SoniqT',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/placeholder.png',
-    type: 'coming-soon',
-    aiHint: 'sparkle',
     year: 2025,
   },
 ];
