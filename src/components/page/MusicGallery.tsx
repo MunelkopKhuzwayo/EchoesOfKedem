@@ -260,7 +260,7 @@ const musicData: MusicData[] = [
     links: [
       { platform: 'Ditto', url: 'https://soldistro.Ink.to/iKhweziLokusa!share' },
     ],
-    embedId: "1fwn4fPUKJ4",
+    embedId: "S4tV_8aw5Wg",
     aiHint: 'liphupho',
     year: 2024,
   },
@@ -343,7 +343,10 @@ const musicData: MusicData[] = [
     title: "Unseen",
     artist: 'DJ SoniqT',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/unseen.jpg',
-    type: 'youtube',
+    type: 'hybrid',
+    links: [
+      { platform: "Ditto", url: "https://ditto.fm/unseen_soniq_t" }
+    ],
     embedId: 'UvC9EH6i0mc',
     aiHint: 'unseen',
     year: 2025,
