@@ -354,9 +354,14 @@ const musicData: MusicData[] = [
   {
     id: 27,
     title: "Sakhethana Kahle",
-    artist: 'Jaiva Zimnike, Sibah Musiq',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/sakhethana%20kahle.jpg',
-    type: 'coming-soon',
+    artist: 'AMA AK-47, Sibah Musiq',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/sakhethana-kahle.jpeg',
+    type: 'hybrid',
+    links: [
+      { platform: "Spotify", url: "https://open.spotify.com/track/4djp9GqFne4dDhwLb2Gjip?si=aLFWipzkQVesUxChIeWFBA" },
+      { platform: "Apple Music", url: "https://music.apple.com/za/song/sakhethana-kahle/1857218541" }
+    ],
+    embedId: 'JrOfPXv0cV4',
     aiHint: 'sakhethana kahle',
     year: 2025,
   },
