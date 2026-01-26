@@ -77,7 +77,7 @@ const musicData: MusicData[] = [
     artist: 'Dinkie',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/IMG-20210407-WA0000.jpg',
     type: 'youtube',
-    embedId: 'YSIZVC-d7MA', // Example YouTube video ID
+    embedId: 'YSlZVC-d7MA',
     aiHint: 'as long as I live song',
     year: 2019,
   },
@@ -283,7 +283,7 @@ const musicData: MusicData[] = [
     artist: 'Dinkie',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/im%20next.jpg',
     type: 'youtube',
-    embedId: "YWUmF%LJT-4",
+    embedId: "FRmD2QGbgm4",
     aiHint: "i'm next",
     year: 2025,
   },

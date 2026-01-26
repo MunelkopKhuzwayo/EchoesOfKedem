@@ -33,9 +33,11 @@ const MusicModal: React.FC<MusicModalProps> = ({ isOpen, onClose, song }) => {
 
   const [showVideo, setShowVideo] = useState(false);
 
-  const toggleVideo = () => {
-    setShowVideo(!showVideo);
-  };
+  useEffect(() => {
+    if (isOpen) {
+      setShowVideo(false);
+    }
+  }, [isOpen, song]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
