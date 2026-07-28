@@ -119,8 +119,8 @@ const VerseHighlights = () => {
         setApi={setEmblaApi} // Use setApi to get the Embla API instance
         plugins={[plugin.current]}
         className="w-full max-w-4xl mx-auto"
-        onMouseEnter={() => plugin.current.stop}
-        onMouseLeave={() => plugin.current.play}
+        onMouseEnter={() => plugin.current.stop()}
+        onMouseLeave={() => plugin.current.play()}
         opts={{ loop: true }} // Ensure looping is enabled for "rotation"
       >
         <CarouselContent>

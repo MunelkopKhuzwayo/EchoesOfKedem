@@ -10,7 +10,7 @@ interface Associate {
   id: number;
   name: string;
   role: string;
-  category: 'Producer' | 'Engineer' | 'Songwriter' | 'Musician' | 'Vocalist';
+  category: 'Producer' | 'Engineer' | 'Songwriter' | 'Musician' | 'Vocalist' | 'Award' | string;
   imageUrl: string;
   bio: string;
   links: {
@@ -52,6 +52,18 @@ const associatesData: Associate[] = [
       tiktok: "https://www.tiktok.com/@sibahmusiq",
       twitter: "https://twitter.com/sibahmusiq"
     },
+  },
+  {
+    id: 2,
+    name: "Choral Indigenous Music Awards 2026",
+    role: "Performance Appreciation Award",
+    category: "Award",
+    imageUrl: "/music-award.jpeg",
+    bio: "Appreciation award presented to Sibah Musiq and Karin Kedem by Sounds of Azania and the Choral Indigenous Music Awards (CIMA) Organising Committee on 26 July 2026 for an outstanding performance at the 2nd Annual CIMA Awards.",
+    links: {
+      website: "http://www.soundsofazania.co.za",
+      email: "info@soundsofazania.co.za"
+    },
   }
 ];
 
@@ -89,14 +101,14 @@ const modalDropIn = {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="relative bg-neutral-900 text-white w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden"
+          className="relative bg-neutral-900 text-white w-full max-w-3xl rounded-xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col md:flex-row"
         >
-          <button onClick={onClose} className="absolute top-4 right-4 text-neutral-400 hover:text-white z-10">
-            X
+          <button onClick={onClose} className="absolute top-4 right-4 text-neutral-400 hover:text-white z-10 bg-black/50 rounded-full w-8 h-8 flex items-center justify-center">
+            ✕
           </button>
-          <div className="md:flex">
-            <div className="md:w-1/2">
-              <img src={associate.imageUrl} alt={associate.name} className="w-full h-full object-cover"/>
+          <div className="md:flex w-full">
+            <div className="md:w-1/2 bg-black flex items-center justify-center p-2 max-h-[50vh] md:max-h-full overflow-hidden">
+              <img src={associate.imageUrl} alt={associate.name} className="w-full h-full object-contain max-h-[70vh] rounded"/>
             </div>
             <div className="md:w-1/2 p-8 flex flex-col justify-center">
               <h2 className="text-3xl font-bold mb-1">{associate.name}</h2>
@@ -107,8 +119,8 @@ const modalDropIn = {
                   url && (
                     <a
                       key={key}
-                      href={url}
-                      target="_blank"
+                      href={key === 'email' || key === 'bookings' ? `mailto:${url}` : url}
+                      target={key === 'email' || key === 'bookings' ? '_self' : '_blank'}
                       rel="noopener noreferrer"
                       className="flex items-center space-x-3 text-neutral-200 hover:text-white transition-colors group"
                     >

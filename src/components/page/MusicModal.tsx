@@ -71,13 +71,13 @@ const MusicModal: React.FC<MusicModalProps> = ({ isOpen, onClose, song }) => {
                 ))}
               </div>
             </div>
-          ) : song.type === 'hybrid' && song?.links?.length > 0 && song.embedId && !showVideo ? (
+          ) : song.type === 'hybrid' && song.links && song.links.length > 0 && song.embedId && !showVideo ? (
             <div className="p-6 flex flex-col justify-center items-center h-full">
               <h3 className="text-2xl font-headline font-semibold text-primary mb-4">
                 Where Else to Listen to: {song.title}
               </h3>
               <div className="grid grid-cols-2 gap-4 w-full max-w-md">
-                {song?.links.map((link, index) => (
+                {song.links.map((link, index) => (
                   <Button asChild key={index} variant="outline" className="w-full">
                     <a href={link.url || "#"} target="_blank" rel="noopener noreferrer">
                       Listen on {link.platform || "Unknown"}

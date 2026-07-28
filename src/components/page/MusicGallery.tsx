@@ -375,7 +375,7 @@ const MusicGallery = () => {
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterYear, setFilterYear] = useState('all');
   const [visibleSongsCount, setVisibleSongsCount] = useState(6);
-  const sortedData: MusicData[]  = musicData.sort((a, b)=> b.id - a.id);
+  const sortedData: MusicData[] = useMemo(() => [...musicData].sort((a, b) => b.id - a.id), []);
   const openModal = (song: MusicData) => {
     setSelectedSong(song);
     setIsModalOpen(true);
@@ -408,7 +408,7 @@ const MusicGallery = () => {
     }
 
     return filtered;
-  }, [searchTerm, filterType, filterArtist, filterYear]);
+  }, [sortedData, searchTerm, filterType, filterArtist, filterYear]);
 
   const displayedMusic = filteredMusic.slice(0, visibleSongsCount);
   const handleSeeMore = () => {
@@ -422,13 +422,13 @@ const MusicGallery = () => {
       song.artist.split(', ').forEach(artist => artists.add(artist.trim()));
     });
     return ['all', ...Array.from(artists).sort()];
-  }, []);
+  }, [sortedData]);
 
   const uniqueYears = useMemo(() => {
     const years = new Set<number>();
     sortedData.forEach(song => years.add(song.year));
     return ['all', ...Array.from(years).sort((a, b) => b - a).map(String)];
-  }, []);
+  }, [sortedData]);
 
   return (
     <section id="music" className="py-16 sm:py-24">
@@ -519,16 +519,19 @@ const MusicGallery = () => {
               <div className="p-6">
                 <h3 className="text-2xl font-headline font-semibold text-primary">{song.title}</h3>
                 <p className="text-muted-foreground mt-1 text-sm">with {song.artist}</p>
-                <Button asChild variant="link" className="px-0 mt-4 text-accent-foreground group-hover:text-primary">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  { song.type == 'coming-soon' ? (
-                    <p>
-                    Coming Soon
-                  </p>) : (
-                    <a onClick={(e) => { e.stopPropagation(); openModal(song); }}>
-                    Listen Now
-                    <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">&rarr;</span>
-                  </a>)}
+                <Button 
+                  variant="link" 
+                  className="px-0 mt-4 text-accent-foreground group-hover:text-primary"
+                  onClick={(e) => { e.stopPropagation(); openModal(song); }}
+                >
+                  { song.type === 'coming-soon' ? (
+                    'Coming Soon'
+                  ) : (
+                    <>
+                      Listen Now
+                      <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-1">&rarr;</span>
+                    </>
+                  )}
                 </Button>
               </div>
             </CardContent>
