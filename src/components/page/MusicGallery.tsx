@@ -32,7 +32,7 @@ const musicData: MusicData[] = [
     artist: 'Jaiva Zimnike',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/ngehlelwa-umoya.jpg',
     type: 'youtube',
-    embedId: 'Tsk4jCHtYZk', 
+    embedId: 'Tsk4jCHtYZk',
     aiHint: 'ngehlelwa umoya',
     year: 2016,
   },
@@ -232,7 +232,7 @@ const musicData: MusicData[] = [
     type: 'hybrid',
     links: [
       { platform: 'Ditto', url: 'https://ditto.fm/magic-touch-chrsnino' },
-      { platform: 'Ditto(alt)', url: 'https://ditto.fm/magic-touch-karin-kedem'}
+      { platform: 'Ditto(alt)', url: 'https://ditto.fm/magic-touch-karin-kedem' }
     ],
     embedId: "FoniSVP7Od8",
     aiHint: 'magic touch',
@@ -281,7 +281,7 @@ const musicData: MusicData[] = [
     id: 21,
     title: "I'm Next",
     artist: 'Dinkie',
-    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/im%20next.jpg',
+    thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/im%20next.jpeg',
     type: 'youtube',
     embedId: "FRmD2QGbgm4",
     aiHint: "i'm next",
@@ -392,7 +392,7 @@ const MusicGallery = () => {
     if (searchTerm) {
       filtered = filtered.filter(song =>
         song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        song.artist.toLowerCase().includes(searchTerm.toLowerCase()) );
+        song.artist.toLowerCase().includes(searchTerm.toLowerCase()));
     }
 
     if (filterType !== 'all') {
@@ -434,7 +434,7 @@ const MusicGallery = () => {
     <section id="music" className="py-16 sm:py-24">
       <header className="text-center my-12 md:my-16">
         <h1 className="text-4xl sm:text-5xl font-headline font-bold text-center text-primary mb-16">Featured On</h1>
-        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">A curated list of every track I've been featured on—brought together in one place.</p> 
+        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">A curated list of every track I've been featured on—brought together in one place.</p>
       </header>
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
         <Input
@@ -500,18 +500,18 @@ const MusicGallery = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12">
         {displayedMusic.map((song) => (
-          <Card 
-            key={song.id} 
+          <Card
+            key={song.id}
             className="overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border/30 bg-card/50 backdrop-blur-sm cursor-pointer"
             onClick={() => openModal(song)}
           >
             <CardContent className="p-0">
               <div className="relative aspect-square overflow-hidden">
-                <Image 
-                  src={song.thumbnail} 
+                <Image
+                  src={song.thumbnail}
                   fill
                   style={{ objectFit: "cover" }}
-                  alt={song.title} 
+                  alt={song.title}
                   className="transition-transform duration-500 group-hover:scale-110"
                   data-ai-hint={song.aiHint}
                 />
@@ -519,12 +519,12 @@ const MusicGallery = () => {
               <div className="p-6">
                 <h3 className="text-2xl font-headline font-semibold text-primary">{song.title}</h3>
                 <p className="text-muted-foreground mt-1 text-sm">with {song.artist}</p>
-                <Button 
-                  variant="link" 
+                <Button
+                  variant="link"
                   className="px-0 mt-4 text-accent-foreground group-hover:text-primary"
                   onClick={(e) => { e.stopPropagation(); openModal(song); }}
                 >
-                  { song.type === 'coming-soon' ? (
+                  {song.type === 'coming-soon' ? (
                     'Coming Soon'
                   ) : (
                     <>
