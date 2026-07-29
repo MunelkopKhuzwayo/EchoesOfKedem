@@ -282,7 +282,10 @@ const musicData: MusicData[] = [
     title: "I'm Next",
     artist: 'Dinkie',
     thumbnail: 'https://storage.googleapis.com/techfusion-alchemy-bucket/karin/im%20next.jpeg',
-    type: 'youtube',
+    type: 'hybrid',
+    links: [
+      { platform: 'Spotify', url: 'https://open.spotify.com/album/5dmYYRCITeQHot8sQdncrT?si=AqsxxEy3SzOMVgDgY5GEmQ&utm_source=copy-link' },
+    ],
     embedId: "FRmD2QGbgm4",
     aiHint: "i'm next",
     year: 2025,
